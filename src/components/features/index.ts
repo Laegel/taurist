@@ -1,0 +1,6 @@
+export { default as Commands } from './Commands.vue'
+export { default as Events } from './Events.vue'
+export { default as Multiwindow } from './Multiwindow.vue'
+export { default as Splashscreen } from './Splashscreen.vue'
+export { default as WindowCustomization } from './WindowCustomization.vue'
+export { default as SystemTray } from './SystemTray.vue'

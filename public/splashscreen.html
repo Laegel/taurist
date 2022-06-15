@@ -1,0 +1,48 @@
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var value = 0
+    var progress = document.querySelector('.progress')
+    var interval = setInterval(function () {
+      if (value !== 100) {
+        add = (Math.ceil(Math.random() * 5))
+        if (value + add > 100) {
+          value = 100
+        } else {
+          value += add
+        }
+        progress.style.width = value + '%'
+      } else {
+        clearInterval(interval)
+        window.__TAURI__.invoke('close_splashscreen')
+      }
+    }, 100)
+  })
+</script>
+<body>
+  <Lottie-Player
+    src="tauri-splash.json"
+    background="transparent"
+    speed="1"
+    style="height: 284px; margin: auto"
+    autoplay
+  ></Lottie-Player>
+  <div class="progress-container"><div class="progress"></div></div>
+</body>
+<style>
+  body {
+    background-color: rgb(27, 27, 29);
+  }
+  .progress-container {
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .progress {
+    width: 0;
+    background: #65d3ea;
+    height: 100%;
+  }
+</style>
